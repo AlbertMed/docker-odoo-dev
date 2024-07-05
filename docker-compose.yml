@@ -1,12 +1,16 @@
+version: '3.1'
 services:
   web:
     container_name: ${ODOO_CONTAINER_NAME}
-    image: odoodev:${ODOO_VERSION}
+    image: devodoo:${ODOO_VERSION}
     depends_on:
       - db
     ports:
       - "${ODOO_PORT}:${ODOO_PORT}"
       - "${DEBUGPY_PORT}:${DEBUGPY_PORT}"
+    environment:
+      - USER=odoo
+      - PASSWORD=odoo
     volumes:
       - ./conf:/etc/odoo
       - odoo-web-data:/var/lib/odoo
@@ -18,13 +22,14 @@ services:
     image: postgres:${PG_VERSION}
     environment:
       - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD=${PG_PASSWORD}
-      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
     ports:
       - ${PG_PORT}:5432
     volumes:
-      - pgdb-data:/var/lib/postgresql/data/pgdata
+      - pgdb-data:/var/lib/postgresql/data/pgdata                  
 volumes:
   odoo-web-data:
   pgdb-data:
+

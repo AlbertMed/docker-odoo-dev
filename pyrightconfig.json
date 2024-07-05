@@ -1,8 +1,10 @@
 {
-    "stubPath": "/path/odoo-stubs16",
+    "stubPath": "C:/Users/alber/www/devOdoo/odoo-stubs",
+    
+    
     "extraPaths": [
-        "/path/server/odoo",
-        "/path/server/odoo/addons",
-        "/path/custom_addons"
+        "C:/Users/alber/www/devOdoo/odoo17",
+        "C:/Users/alber/www/devOdoo/odoo17/addons",
+        "C:/Users/alber/www/devOdoo/custom_addons"
     ]
 }

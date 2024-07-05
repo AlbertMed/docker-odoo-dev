@@ -1,2 +1,5 @@
 debugpy
 pydevd-odoo
+openai
+langchain
+python-environ
